@@ -1,5 +1,6 @@
 from datetime import date
 import turtle
+import math
 
 #Questão 1
  #Os valores que vão ser escritos na tela do usuário serão
@@ -85,7 +86,7 @@ def task6():
     pX = float(input('Digite qualquer ponto X: '))
     pY = float(input('Digite qualquer ponto Y: '))
 
-    distPontos = (cX - pY)**2 + (cY + pY)**2
+    distPontos = (cX - pX)**2 + (cY + pY)**2
     if  (distPontos > raio**2) or (distPontos == raio**2):
             print('O ponto está fora do círculo')
     elif (distPontos < raio**2):
@@ -155,33 +156,31 @@ def task11():
         if salario > 0:
             salarios.append(salario)
         else:
-            print('Valor invalido você vai ter que cadastrar novamente!')
+            print('Entrada de dados parada!')
+            continuar = False
             continue
 
         filho = int(input('Digite quantos filhos você tem: '))
         if filho > 0:
             filhos.append(filho)
-        else:
-            print('Valor invalido você vai ter que cadastrar novamente!')
-            continue
-
-        cont = input('Cadastrar mais um? (S/N): ')
-        if cont.upper() == 'N':
-            continuar = False
     
     mediaSal = sum(salarios)/len(salarios)
     mediaFilhos = sum(filhos)/len(filhos)
     
     salarios_100_qnt = 0
+
     for salario in salarios:
         if salario <= 100:
             salarios_100_qnt += 1
 
     mediaSalarios100 = salarios_100_qnt * 100/len(salarios)
 
-    print('A media de filhos dos usuarios é:', "{:.2f}".format(round(mediaFilhos, 2)))
-    print('O salário médio dos usuários é:', "{:.2f}".format(round(mediaSal, 2)))
-    print('Percentual de pessoas que vivem com até R$100.00:', "{:.2f}".format(round(mediaSalarios100, 2)) + '%')
-
-
-task6()
+    mediaFilhosFormat = math.floor(mediaFilhos)
+    salariosFormat = max(salarios)
+    
+    print('--------------------------------------------------------------------')
+    print('A media de filhos dos usuarios é de:', "{:.2f}".format(round(mediaFilhosFormat)), 'filhos')
+    print('O salário médio dos usuários é de:', 'R$' + "{:.2f}".format(mediaSal))
+    print('O maior salário é de:', 'R$' + '{:.2f}'.format(salariosFormat))
+    print('Percentual de pessoas que vivem com até R$100.00:', "{:.2f}".format(mediaSalarios100) + '%')
+    print('--------------------------------------------------------------------')

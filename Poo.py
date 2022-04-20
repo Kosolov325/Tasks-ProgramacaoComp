@@ -1,7 +1,3 @@
-from multiprocessing.sharedctypes import Value
-
-
-
 class Calculadora():
     __valor1 = float
     __valor2 = float
@@ -40,5 +36,6 @@ valor2 = float(input("Digite outro valor: "))
 
 c = Calculadora(valor1, valor2)
 
-print('Os resultados foram:', c.multi(), c.div())
+print('Os resultados foram:', c.multi(), c.div(), 'Tempo decorrido:')
+
 
