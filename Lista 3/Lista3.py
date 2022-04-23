@@ -1,4 +1,5 @@
 import time
+from math import prod
 
 def task4():
     n = 0
@@ -86,20 +87,23 @@ def task9():
 def task10():
     continuar = True
     values = []
+    valuesPares = []
+
     while continuar == True:
         val = int(input('Digite um valor: '))
         if val == 0:
             continuar = False
-            break
+            continue
         elif val > 0:
             values.append(val)
     
-    valuesPar = []
+
     for value in values:
-        if value %2 == 0:
-            valuesPar.append(value)
+        if value % 2 == 0:
+            valuesPares.append(value)
     
-    print('A soma dos valores pares é', sum(valuesPar))
+
+    print('A soma dos valores pares é', prod(valuesPares))
 
 def task11():
     start_time = time.time()
@@ -135,3 +139,5 @@ def task12():
 
         if n % 2:
             print(n)
+
+task10()
