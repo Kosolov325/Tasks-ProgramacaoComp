@@ -139,5 +139,3 @@ def task12():
 
         if n % 2:
             print(n)
-
-task10()
